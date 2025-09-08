@@ -1,0 +1,10 @@
+{{ template "header" . }}
+
+<h1>{{ .customer.FirstName }}</h1>
+<p>{{ .customer.LastName }}</p>
+<p>{{ .customer.DocumentNumber }}</p>
+<p>{{ .customer.Email }}</p>
+<p><small>Creadox: {{ .customer.CreatedAt.Format "2006-01-02 15:04:05" }}</small></p>
+<a class="btn btn-secondary" href="/customers">Volver</a>
+
+{{ template "footer" . }}

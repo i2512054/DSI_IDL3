@@ -1,0 +1,29 @@
+{{ template "header" . }}
+<h1>Nuevo Usuario</h1>
+{{ if .error }}
+  <div class="alert alert-danger">{{ .error }}</div>
+{{ end }}
+<form method="post" action="/users">
+  <div class="mb-3">
+    <label class="form-label">Cuenta</label>
+    <input name="name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Correo Electrónico</label>
+    <input name="email" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Estado</label>
+    <input name="ind_status" class="form-control" maxlength="2" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Contraseña</label>
+    <input type="password" name="password" class="form-control" required>
+  </div>
+  <div class="hstack gap-3 mb-4 mt-4">
+    <a href="/users" class="btn btn-danger"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+    <button class="btn btn-primary">Crear Usuario</button>
+  </div>
+</form>
+
+{{ template "footer" . }}

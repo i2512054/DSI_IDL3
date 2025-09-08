@@ -1,0 +1,29 @@
+{{ template "header" . }}
+<h1>Nuevo Cliente</h1>
+{{ if .error }}
+  <div class="alert alert-danger">{{ .error }}</div>
+{{ end }}
+<form method="post" action="/customers">
+  <div class="mb-3">
+    <label class="form-label">Nombres</label>
+    <input name="first_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Apellidos</label>
+    <input name="last_name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nª de Documento</label>
+    <input name="document_number" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Correo Electrónico</label>
+    <input name="email" class="form-control" required>
+  </div>
+  <div class="hstack gap-3 mb-4 mt-4">
+    <a href="/customers" class="btn btn-danger"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+    <button class="btn btn-primary">Crear Cliente</button>
+  </div>
+</form>
+
+{{ template "footer" . }}

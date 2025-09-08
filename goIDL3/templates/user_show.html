@@ -1,0 +1,9 @@
+{{ template "header" . }}
+
+<h1>{{ .user.Name }}</h1>
+<p>{{ .user.Email }}</p>
+<p>{{ .user.IndStatus }}</p>
+<p><small>Creadox: {{ .user.CreatedAt.Format "2006-01-02 15:04:05" }}</small></p>
+<a class="btn btn-secondary" href="/users">Volver</a>
+
+{{ template "footer" . }}

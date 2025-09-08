@@ -1,0 +1,25 @@
+{{ template "header" . }}
+
+<h1>Editar</h1>
+<form method="post" action="/users/update/{{ .user.ID }}">
+  <div class="mb-3">
+    <label class="form-label">Cuenta</label>
+    <input name="name" class="form-control" value="{{ .user.Name }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Correo Electrónico</label>
+    <input name="email" class="form-control" value="{{ .user.Email }}" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Estado</label>
+    <input name="ind_status" class="form-control" value="{{ .user.IndStatus }}" maxlength="2" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Contraseña</label>
+    <input type="password" name="password" class="form-control" value="{{ .user.Password }}" required>
+  </div>
+  <button class="btn btn-primary">Guardar Usuario</button>
+  <a class="btn btn-secondary" href="/users">Cancelar</a>
+</form>
+
+{{ template "footer" . }}

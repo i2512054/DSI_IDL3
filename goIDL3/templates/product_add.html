@@ -1,0 +1,35 @@
+{{ template "header" . }}
+<h1>Nuevo Producto</h1>
+{{ if .error }}
+  <div class="alert alert-danger">{{ .error }}</div>
+{{ end }}
+<form method="post" action="/products">
+  <div class="col-12 col-md-6">
+      <div class="mb-3">
+          <label class="form-label">Categoría</label>
+          <select class="form-select" id="category_id" name="category_id" required>
+              <option value="" selected>Seleccione Categoría</option>
+              <option value="Categorías D'GALA" selected>Categorías D'GALA</option>
+          </select>
+          <div class="invalid-feedback fw-bold">Por favor seleccione la categoría.</div>
+      </div>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nombre</label>
+    <input name="name" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Descripcion</label>
+    <input name="description" class="form-control" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Stock</label>
+    <input name="stock" class="form-control" required>
+  </div>
+  <div class="hstack gap-3 mb-4 mt-4">
+    <a href="/products" class="btn btn-danger"><i class="fas fa-arrow-left me-2"></i>Cancelar</a>
+    <button class="btn btn-primary">Crear Producto</button>
+  </div>
+</form>
+
+{{ template "footer" . }}

@@ -1,0 +1,8 @@
+{{ template "header" . }}
+
+<h1>{{ .category.CategoryId }}</h1>
+<p>{{ .category.Name }}</p>
+<p><small>Creadox: {{ .category.CreatedAt.Format "2006-01-02 15:04:05" }}</small></p>
+<a class="btn btn-secondary" href="/categories">Volver</a>
+
+{{ template "footer" . }}

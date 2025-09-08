@@ -1,0 +1,35 @@
+{{ template "header" . }}
+<h1>Clientes</h1>
+<div class="hstack gap-3 mb-4 mt-4">
+  <a class="btn btn-dark" href="/customers/new"><i class="fas fa-plus me-2"></i>Agregar</a>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th><th>Nombres</th><th>Apellidos</th><th>Nª de Documento</th><th>E-Mail</th><th>Creado</th><th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{ range .customers }}
+    <tr>
+      <td>{{ .ID }}</td>
+      <td>{{ .FirstName }}</td>
+      <td>{{ .LastName }}</td>
+      <td>{{ .DocumentNumber }}</td>
+      <td>{{ .Email }}</td>
+      <td>{{ .CreatedAt.Format "2006-01-02 15:04:05" }}</td>
+      <td>
+        <a href="/customers/show/{{ .ID }}" class="btn btn-sm btn-primary">Ver</a>
+        <a href="/customers/edit/{{ .ID }}" class="btn btn-sm btn-secondary">Editar</a>
+        <form method="post" action="/customers/delete/{{ .ID }}" style="display:inline">
+          <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Eliminar?')">Eliminar</button>
+        </form>
+      </td>
+    </tr>
+  {{ else }}
+    <tr><td colspan="5">No hay Clientes</td></tr>
+  {{ end }}
+  </tbody>
+</table>
+
+{{ template "footer" . }}
